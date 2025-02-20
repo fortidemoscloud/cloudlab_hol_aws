@@ -3,13 +3,13 @@
 This is a collection of deployments for Fortinet in AWS Cloud.
 
 ## List of modules
-- [basic_fgt-cluster-fgcp-1az](./basic_fgt-cluster-fgcp-1az)
+- [basic_fgt-cluster-app-sec](./basic_fgt-cluster-app-sec)
 
 ## Deployment considerations:
 - Follow the guide of each module.
 
 ## Use examples:
-Go to [AWS Terraform modules examples](https://github.com/jmvigueras/terraform-ftnt-modules-examples/AWS)
+Go to [AWS Terraform modules examples](https://github.com/jmvigueras/terraform-ftnt-modules-examples/tree/main/AWS)
 
 ## Requirements
 * [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) >= 1.5.0
