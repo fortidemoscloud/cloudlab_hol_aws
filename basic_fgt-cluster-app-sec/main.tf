@@ -33,7 +33,7 @@ variable "custom_vars" {
 #--------------------------------------------------------------------------------------------------------------
 module "fgt-cluster" {
   source  = "jmvigueras/ftnt-aws-modules/aws//examples/basic_fgt-cluster"
-  version = "0.0.12"
+  version = "0.0.14"
 
   prefix = var.prefix
 
@@ -58,7 +58,7 @@ module "fgt-cluster" {
 #--------------------------------------------------------------------------------------------------------------
 module "k8s" {
   source  = "jmvigueras/ftnt-aws-modules/aws//modules/vm"
-  version = "0.0.12"
+  version = "0.0.14"
 
   prefix        = var.prefix
   keypair       = module.fgt-cluster.keypair_name
