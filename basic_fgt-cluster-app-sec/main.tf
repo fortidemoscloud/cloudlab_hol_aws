@@ -2,7 +2,7 @@
 # Variables
 # ----------------------------------------------------------------------------------------
 variable "prefix" {
-  description = "Prefix to configured items in Azure"
+  description = "Prefix to configured items in AWS"
   type        = string
   default     = "fgt-ha-xlb"
 }
@@ -108,13 +108,7 @@ locals {
 #-------------------------------------------------------------------------------------------------------------
 # Terraform Backend config
 #-------------------------------------------------------------------------------------------------------------
-# Access and secret keys
-variable "access_key" {}
-variable "secret_key" {}
-
 provider "aws" {
-  access_key = var.access_key
-  secret_key = var.secret_key
   region     = var.custom_vars["region"]
 }
 
