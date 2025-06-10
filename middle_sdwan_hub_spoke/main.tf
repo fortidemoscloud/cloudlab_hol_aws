@@ -36,7 +36,7 @@ module "hub_aws_1" {
   source = "github.com/jmvigueras/aws-fgt-cluster-module?ref=v1.0.3"
 
   # Add custom variables
-  prefix = "hub-aws-1"
+  prefix = "${var.prefix}-hub-aws-1"
   region = "eu-south-2"
   azs    = ["eu-south-2a"]
 
@@ -47,14 +47,14 @@ module "hub_aws_1" {
   config_hub = true
   hub        = local.hub_aws_1
 
-  tags       = var.tags
+  tags       = var.custom_vars["tags"]
 }
 
 module "hub_aws_2" {
   source = "github.com/jmvigueras/aws-fgt-cluster-module?ref=v1.0.3"
 
   # Add custom variables
-  prefix = "hub-aws-2"
+  prefix = "${var.prefix}-hub-aws-2"
   region = "eu-west-1"
   azs    = ["eu-west-1a"]
 
@@ -65,7 +65,7 @@ module "hub_aws_2" {
   config_hub = true
   hub        = local.hub_aws_2
 
-  tags       = var.tags
+  tags       = var.custom_vars["tags"]
 }
 
 #--------------------------------------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ module "spoke_aws" {
   source = "github.com/jmvigueras/aws-fgt-cluster-module?ref=v1.0.3"
   
   # Add custom variables
-  prefix = "spoke-eu-west"
+  prefix = "${var.prefix}-spoke"
   region = "eu-west-1"
   azs    = ["eu-west-1a"]
 
@@ -89,7 +89,7 @@ module "spoke_aws" {
   }
   hubs = local.hubs
 
-  tags = var.tags
+  tags = var.custom_vars["tags"]
 }
 
 #--------------------------------------------------------------------------------------------------------------

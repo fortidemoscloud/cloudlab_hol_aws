@@ -1,14 +1,39 @@
 #--------------------------------------------------------------------------------------------------------------
 # General Variables
 #--------------------------------------------------------------------------------------------------------------
-variable "tags" {
-  description = "Tags to apply to all resources"
-  type        = map(string)
-  default = {
-    environment = "demo"
-    project     = "multi-cloud-sdwan"
-    owner       = "terraform"
-  }
+# ----------------------------------------------------------------------------------------
+# Variables
+# ----------------------------------------------------------------------------------------
+variable "prefix" {
+  description = "Prefix to configured items in AWS"
+  type        = string
+  default     = "ptf-eng-demo"
+}
+
+variable "fortiflex_token" {
+  description = "FortiFlex token"
+  type        = string
+  default     = ""
+}
+
+variable "custom_vars" {
+  description = "Custom variables"
+  type = object({
+    region                     = optional(string, "eu-west-1")
+    fgt_build                  = optional(string, "build2731")
+    license_type               = optional(string, "byol")
+    fgt_size                   = optional(string, "c6i.large")
+    fgt_cluster_type           = optional(string, "fgcp")
+    fgt_number_peer_az         = optional(number, 1)
+    number_azs                 = optional(number, 1)
+    fgt_vpc_cidr               = optional(string, "172.10.0.0/23")
+    public_subnet_names_extra  = optional(list(string), ["bastion"])
+    private_subnet_names_extra = optional(list(string), ["protected"])
+    k8s_size                   = optional(string, "t3.2xlarge")
+    k8s_version                = optional(string, "1.31")
+    tags                       = optional(map(string), { "Deploy" = "CloudLab AWS", "Project" = "CloudLab" })
+  })
+  default = {}
 }
 
 #--------------------------------------------------------------------------------------------------------------
