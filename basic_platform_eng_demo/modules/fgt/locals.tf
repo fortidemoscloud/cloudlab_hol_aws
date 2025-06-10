@@ -18,7 +18,7 @@ locals {
   fgt_subnet_tags = var.fgt_subnet_tags != null ? var.fgt_subnet_tags : {
     "port1.${local.subnet_tags["public"]}"  = "untrusted"
     "port2.${local.subnet_tags["private"]}" = "trusted"
-    "port3.${local.subnet_tags["mgmt"]}"    = var.fgt_cluster_type == "fgcp" ? "mgmt" : ""
+    "port3.${local.subnet_tags["mgmt"]}"    = ""
     "port4.${local.subnet_tags["ha"]}"      = ""
   }
 

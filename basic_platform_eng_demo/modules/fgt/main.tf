@@ -51,10 +51,6 @@ module "fgt_config" {
 
   ports_config = each.value
 
-  config_fgcp       = var.fgt_cluster_type == "fgcp" ? true : false
-  config_fgsp       = var.fgt_cluster_type == "fgsp" ? true : false
-  config_auto_scale = var.fgt_cluster_type == "fgsp" ? true : false
-
   fgt_id     = each.key
   ha_members = module.fgt_nis.fgt_ports_config
 

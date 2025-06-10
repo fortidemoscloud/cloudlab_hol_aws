@@ -33,7 +33,7 @@ variable "custom_vars" {
 #--------------------------------------------------------------------------------------------------------------
 module "fgt-cluster" {
   source  = "jmvigueras/ftnt-aws-modules/aws//examples/basic_fgt-cluster"
-  version = "0.0.14"
+  version = "0.0.15"
 
   prefix = var.prefix
 
@@ -71,14 +71,6 @@ module "k8s" {
   security_groups = [module.fgt-cluster.sg_ids["default"]]
 }
 
-output "fgt" {
-  value = module.fgt-cluster.fgt
-}
-
-output "k8s" {
-  value = module.k8s.vm
-}
-
 locals {
   # K8S configuration and APP deployment
   k8s_deployment = templatefile("./templates/k8s-dvwa-swagger.yaml.tp", {
@@ -109,10 +101,16 @@ locals {
 # Terraform Backend config
 #-------------------------------------------------------------------------------------------------------------
 provider "aws" {
-  region     = var.custom_vars["region"]
+  region = var.custom_vars["region"]
 }
 
 # Prepare to add backend config from CLI
 terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.94.0"
+    }
+  }
   backend "s3" {}
 }

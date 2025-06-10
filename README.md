@@ -1,20 +1,37 @@
-# List of modules for AWS deployments
+# CloudLab HOL AWS - Fortinet Demos
 
-This is a collection of deployments for Fortinet in AWS Cloud.
+This repository contains Terraform configurations for deploying various Fortinet solutions on AWS. These are hands-on lab examples designed for testing and demonstration purposes.
 
-## List of modules
-- [basic_fgt-cluster-app-sec](./basic_fgt-cluster-app-sec)
+## Repository Structure
 
-## Deployment considerations:
-- Follow the guide of each module.
+### [basic_fgt-cluster-app-sec](./basic_fgt-cluster-app-sec/)
+FortiGate cluster deployment with application security features using FGCP clustering in AWS.
 
-## Use examples:
-Go to [AWS Terraform modules examples](https://github.com/jmvigueras/terraform-ftnt-modules-examples/tree/main/AWS)
+### [basic_platform_eng_demo](./basic_platform_eng_demo/)
+Platform engineering demonstration with FortiGate standalone deployment and associated infrastructure.
 
-## Requirements
-* [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) >= 1.5.0
-* Check particulars requiriments for each deployment (AWS) 
+### [middle_sdwan_hub_spoke](./middle_sdwan_hub_spoke/)
+SD-WAN hub and spoke topology demonstration with FortiGate devices.
 
-# Support
-This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.
+## Prerequisites
 
+- [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) >= 1.5.0
+- AWS CLI configured with appropriate credentials
+- Basic understanding of Terraform and AWS networking
+
+## Quick Start
+
+1. Clone this repository
+2. Navigate to the desired deployment folder
+3. Copy and customize the `terraform.tfvars` file
+4. Run the provided script: `./0_terraform_script.sh`
+
+## Important Notes
+
+- **Cost Warning**: These deployments will incur AWS charges
+- **Demo Purpose**: These configurations are for testing and demonstration only
+- **No Support**: This is a personal repository without official support
+
+## License
+
+See [LICENSE](./LICENSE) file for details.

@@ -5,18 +5,18 @@ output "fgt" {
   value = { for i, v in module.fgt.fgt_list :
     v["fgt"] => {
       fgt_pass = v["id"]
-      fgt_mgmt = var.fgt_cluster_type == "fgcp" ? (
-        "https://${element(lookup(module.fgt_nis.fgt_ni_list, v["fgt"], "").mgmt_eips, 0)}:${var.admin_port}"
-        ) : (
-        "https://${element(lookup(module.fgt_nis.fgt_ni_list, v["fgt"], "").public_eips, 0)}:${var.admin_port}"
-      )
+      fgt_mgmt = "https://${element(lookup(module.fgt_nis.fgt_ni_list, v["fgt"], "").public_eips, 0)}:${var.admin_port}"
       fgt_public = try(element(lookup(module.fgt_nis.fgt_ni_list, v["fgt"], "").public_eips, 0), "None")
     }
   }
 }
 
 output "keypair_name" {
-  value = trimspace(aws_key_pair.keypair.key_name)
+  value = aws_key_pair.keypair.key_name
+}
+
+output "ssh_private_key_pem" {
+  value = trimspace(tls_private_key.ssh.private_key_pem)
 }
 
 output "subnet_ids" {

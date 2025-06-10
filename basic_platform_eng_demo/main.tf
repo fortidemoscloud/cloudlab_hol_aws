@@ -37,17 +37,17 @@ variable "custom_vars" {
 # FGT Cluster module example
 # - 1 FortiGate cluster FGCP in 2 AZ
 #--------------------------------------------------------------------------------------------------------------
-module "fgt-cluster" {
-  source  = "./modules/fgt-standalone"
+module "fgt" {
+  source = "./modules/fgt"
 
   prefix = var.prefix
 
   region = var.custom_vars["region"]
   azs    = local.azs
 
-  fgt_build     = var.custom_vars["fgt_build"]
-  
-  license_type  = var.custom_vars["license_type"]
+  fgt_build = var.custom_vars["fgt_build"]
+
+  license_type    = var.custom_vars["license_type"]
   fortiflex_token = var.fortiflex_token
 
   instance_type = var.custom_vars["fgt_size"]
@@ -69,28 +69,21 @@ module "k8s" {
   version = "0.0.14"
 
   prefix        = var.prefix
-  keypair       = module.fgt-cluster.keypair_name
+  keypair       = module.fgt.keypair_name
   instance_type = var.custom_vars["k8s_size"]
 
   user_data = local.k8s_user_data
 
-  subnet_id       = module.fgt-cluster.subnet_ids["az1"]["bastion"]
-  subnet_cidr     = module.fgt-cluster.subnet_cidrs["az1"]["bastion"]
-  security_groups = [module.fgt-cluster.sg_ids["default"]]
+  subnet_id       = module.fgt.subnet_ids["az1"]["bastion"]
+  subnet_cidr     = module.fgt.subnet_cidrs["az1"]["bastion"]
+  security_groups = [module.fgt.sg_ids["default"]]
 }
 
-output "fgt" {
-  value = module.fgt-cluster.fgt
-}
-
-output "k8s" {
-  value = module.k8s.vm
-}
 
 locals {
   # K8S configuration and APP deployment
   k8s_deployment = templatefile("./templates/voteapp.yml.tp", {
-      node_port  = "31000"
+    node_port = "31000"
     }
   )
   k8s_user_data = templatefile("./templates/k8s.sh.tp", {
@@ -114,10 +107,16 @@ locals {
 # Terraform Backend config
 #-------------------------------------------------------------------------------------------------------------
 provider "aws" {
-  region     = var.custom_vars["region"]
+  region = var.custom_vars["region"]
 }
 
 # Prepare to add backend config from CLI
 terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.94.0"
+    }
+  }
   backend "s3" {}
 }
