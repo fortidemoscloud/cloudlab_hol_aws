@@ -1,73 +1,47 @@
-#SO files
-.DS_Store
-.gitignore
-*.bkp
-/*.priv/*
-*.priv
-/priv/*
-/drawio/*
-*.drawio
-*.dtmp
-
-# Scripts
-*.sh
-
-# Sensitive data
-.env
-.env.test
-*.lic
-*.pem
-*.crt
-*.key
-
-# FortiDevSec yaml
-fdevsec.yaml
-
-# Docker
-docker-compose.yml
-
-# Local .terraform directories
-**/.terraform/*
-.terraform.*
-
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-# Crash log files
-crash.log
-
-# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# Ignore any .tfvars files that are generated automatically for each Terraform run
-*.tfvars
-*.tfplan
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
-# VSCode project configuration
-.vscode
-
-# VSCode workspace file
-*.code-workspace
-
-# Python environmets
-**/myenv
-
-# Emacs save files
-*~
-\#*\#
-.\#*
-
-# Vim-related files
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.un~
-Session.vim
-.netrwhist
 # Terraform
 **/.terraform/
 **/.terraform.lock.hcl
 **/terraform.tfstate*
+**/terraform.tfstate.backup
+**/.terraform.tfstate.lock.info
+
+# SSH Keys and sensitive files
 **/ssh-key/
+**/*.pem
+**/*.key
+**/*.pub
+**/id_rsa*
+**/id_ed25519*
+**/id_ecdsa*
+**/id_dsa*
+
+# macOS
 **/.DS_Store
+.DS_Store
+
+# Git ignore file itself
+.gitignore
+
+# Temporary files
+**/*.tmp
+**/*.bak
+**/*.swp
+**/*.swo
+**/.*~
+
+# Log files
+**/*.log
+
+# Environment files
+**/.env
+**/.env.local
+**/.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Backup files
+**/*~
+**/*.orig
