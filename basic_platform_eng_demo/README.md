@@ -11,24 +11,24 @@ This deployment demonstrates platform engineering concepts with FortiGate standa
 
 ## Configuration
 
-Edit `terraform.tfvars` with your settings:
+Copy `terraform.tfvars.example` to `terraform.tfvars` and edit with your settings:
 
-```hcl
-custom_vars = {
-    prefix                     = "platform-eng"
-    region                     = "eu-west-1"
-    fgt_build                  = "build2731"
-    license_type               = "payg"
-    fgt_size                   = "c6i.large"
-    # Add other configuration variables as needed
-}
+```bash
+cp terraform.tfvars.example terraform.tfvars
 ```
+
+Then customize the variables according to your requirements.
 
 ## Deployment
 
 1. Configure your AWS credentials
-2. Edit `terraform.tfvars` with your parameters
-3. Run: `./0_terraform_script.sh`
+2. Copy and edit the terraform.tfvars file as described above
+3. Run terraform commands:
+   ```bash
+   terraform init
+   terraform plan
+   terraform apply
+   ```
 
 ## Resources Created
 

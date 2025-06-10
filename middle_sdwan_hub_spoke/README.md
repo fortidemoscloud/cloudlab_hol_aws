@@ -11,8 +11,13 @@ This deployment creates an SD-WAN topology with hub and spoke architecture using
 
 ## Configuration
 
-Edit `terraform.tfvars` with your settings. This deployment supports various SD-WAN configuration options including:
+Copy `terraform.tfvars.example` to `terraform.tfvars` and edit with your settings:
 
+```bash
+cp terraform.tfvars.example terraform.tfvars
+```
+
+This deployment supports various SD-WAN configuration options including:
 - Hub site configuration
 - Spoke site parameters
 - Overlay network settings
@@ -21,8 +26,13 @@ Edit `terraform.tfvars` with your settings. This deployment supports various SD-
 ## Deployment
 
 1. Configure your AWS credentials
-2. Edit `terraform.tfvars` with your parameters
-3. Run: `./0_terraform_script.sh`
+2. Copy and edit the terraform.tfvars file as described above
+3. Run terraform commands:
+   ```bash
+   terraform init
+   terraform plan
+   terraform apply
+   ```
 
 ## Resources Created
 
