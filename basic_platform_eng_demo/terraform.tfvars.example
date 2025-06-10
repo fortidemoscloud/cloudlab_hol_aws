@@ -1,0 +1,11 @@
+# Example terraform.tfvars file
+# Copy this file to terraform.tfvars and customize the values
+
+custom_vars = {
+    prefix                     = "platform-eng"
+    region                     = "eu-west-1"
+    fgt_build                  = "build2731"
+    license_type               = "payg"
+    fgt_size                   = "c6i.large"
+    # Add other configuration variables as needed
+}

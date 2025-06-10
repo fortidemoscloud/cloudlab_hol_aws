@@ -1,0 +1,19 @@
+# Example terraform.tfvars file
+# Copy this file to terraform.tfvars and customize the values
+
+custom_vars = {
+    prefix                     = "fgt-appsec"
+    region                     = "eu-west-1"
+    fgt_build                  = "build2731"
+    license_type               = "payg"
+    fgt_size                   = "c6i.large"
+    fgt_cluster_type           = "fgcp"
+    fgt_number_peer_az         = 1
+    number_azs                 = 2
+    fgt_vpc_cidr               = "172.10.0.0/23"
+    public_subnet_names_extra  = ["bastion"]
+    private_subnet_names_extra = ["protected"]
+    k8s_size                   = "t3.2xlarge"
+    k8s_version                = "1.31"
+    tags                       = { "Deploy" = "CloudLab AWS", "Project" = "CloudLab" }
+}

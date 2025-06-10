@@ -1,0 +1,5 @@
+# Example terraform.tfvars file
+# Copy this file to terraform.tfvars and customize the values
+
+# Configure your variables here for SD-WAN hub and spoke deployment
+# Customize according to your requirements

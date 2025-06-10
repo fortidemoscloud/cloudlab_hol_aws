@@ -23,7 +23,7 @@ SD-WAN hub and spoke topology demonstration with FortiGate devices.
 
 1. Clone this repository
 2. Navigate to the desired deployment folder
-3. Copy and customize the `terraform.tfvars` file
+3. Copy `terraform.tfvars.example` to `terraform.tfvars` and customize the values
 4. Run terraform commands: `terraform init`, `terraform plan`, `terraform apply`
 
 ## Important Notes
@@ -31,6 +31,7 @@ SD-WAN hub and spoke topology demonstration with FortiGate devices.
 - **Cost Warning**: These deployments will incur AWS charges
 - **Demo Purpose**: These configurations are for testing and demonstration only
 - **No Support**: This is a personal repository without official support
+- **Security**: Never commit `terraform.tfvars` files as they may contain sensitive data
 
 ## License
 
