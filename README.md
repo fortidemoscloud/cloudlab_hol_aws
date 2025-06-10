@@ -10,6 +10,9 @@ FortiGate cluster deployment with application security features using FGCP clust
 ### [basic_platform_eng_demo](./basic_platform_eng_demo/)
 Platform engineering demonstration with FortiGate standalone deployment and associated infrastructure.
 
+### [middle_sdwan_hub_spoke](./middle_sdwan_hub_spoke/)
+SD-WAN hub and spoke topology demonstration with FortiGate devices.
+
 ## Prerequisites
 
 - [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) >= 1.5.0
