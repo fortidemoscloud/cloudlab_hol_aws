@@ -10,7 +10,7 @@ FortiGate cluster deployment with application security features using FGCP clust
 ### [basic_platform_eng_demo](./basic_platform_eng_demo/)
 Platform engineering demonstration with FortiGate standalone deployment and associated infrastructure.
 
-### [middle_sdwan_hub_spoke](./middle_sdwan_hub_spoke/)
+### [middle_sdwan_hub_spoke_clean](./middle_sdwan_hub_spoke_clean/)
 SD-WAN hub and spoke topology demonstration with FortiGate devices.
 
 ## Prerequisites
